@@ -1,6 +1,6 @@
 <!-- <?php 
 
-  require_once 'partials/connect.php';
+  require_once 'partials/Database.php';
   $dbonj = new Database();
   var_dump($dbonj);
 
@@ -22,73 +22,11 @@
     <h1 class="bg-dark text-light text-center p-3">PHP Advance CRUD</h1>
     
     <div class="container">
+
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Add New User</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="POST" id="addform" enctype="multipart/form-data">
-              <div class="modal-body">
-                <!-- Username -->
-                <div class="form-group mb-2">
-                  <label for="">Name:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-dark">
-                        <i class="fas fa-user-alt text-light fa-1x p-1"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Enter your username" autocomplete="off" required id="username" name="username">
-                  </div>
-                </div>
-                
-                <!-- Email -->
-                <div class="form-group mb-2">
-                  <label for="">Email:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-dark">
-                        <i class="fas fa-envelope-open text-light fa-1x p-1"></i>
-                      </span>
-                    </div>
-                    <input type="email" class="form-control" placeholder="Enter your email" autocomplete="off" required id="email" name="email">
-                  </div>
-                </div>
+      <?php include 'form.php' ?>
+      <?php include 'profile.php' ?>
 
-                <!-- Mobile -->
-                <div class="form-group mb-2">
-                  <label for="">Mobile:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-dark">
-                        <i class="fas fa-phone text-light fa-1x p-1"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Enter your mobile" autocomplete="off" required id="mobile" name="mobile" maxlength="10" minlength="10">
-                  </div>
-                </div>
-
-                <!-- Photo -->
-                <div class="form-group mb-2">
-                  <label for="">Photo:</label>
-                  <div class="input-group">
-                    <label for="userphoto" class="custom-file-label"></label>
-                    <input type="file" class="custom-file-input" name="photo" id="userphoto">
-                  </div>
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-dark">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
       <!-- Input Search -->
       <div class="row mb-3">
         <div class="col-10">
@@ -103,37 +41,14 @@
         </div>
         <div class="col-2">
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add New
+          <button type="button" class="btn btn-dark" data-bs-toggle="usermodal" data-bs-target="#exampleModal">
+            Add New User
           </button>
         </div>
       </div>
 
       <!-- Table Start-->
-      <table class="table" id="usertable">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Image</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Operations</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Picture 1</th>
-            <td>John Doe</td>
-            <td>johndoe@gmail.com</td>
-            <td>123456789</td>
-            <td>
-              <span>Edit</span>
-              <span>Profile</span>
-              <span>Delete</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <?php include 'tableData.php' ?>
       <!-- Table Start-->
 
       <!-- Pagination Start -->
